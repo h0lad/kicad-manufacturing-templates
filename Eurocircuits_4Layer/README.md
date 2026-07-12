@@ -40,7 +40,13 @@ Pad = final hole + 0.5 mm is the class-6 floor (hole + 0.1 tool + 2x0.2 OAR).
 
 ## Net classes
 
-Default 0.2/0.2 - Signal_Fine 0.15/0.15 - Power 0.5 - HighCurrent 1.0 mm
+Harmonized classes (JLCPCB-referenced, clamped to this vendor's floor):
+
+- Default 0.2/0.15 mm, via 0.6/0.3
+- Signal_Fine 0.15/0.15 mm (at the manufacturing floor)
+- Power 0.5/0.2 mm, via 0.8/0.4
+- HighCurrent 1.0/0.25 mm, via 1.2/0.6
+
 
 ## Track width presets
 

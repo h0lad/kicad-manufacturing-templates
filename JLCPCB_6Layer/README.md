@@ -76,20 +76,14 @@ don't go thicker than 1.6 mm with 0.2 mm drills.
 
 ## Net classes
 
-| Class         | Track / gap        | Via      | Notes                     |
-|---------------|--------------------|----------|---------------------------|
-| Default       | 0.15 mm            | 0.6/0.3  |                           |
-| Signal_Fine   | 0.10 mm            | 0.45/0.2 | BGA fanout                |
-| Power         | 0.50 mm            | 0.8/0.4  |                           |
-| HighCurrent   | 1.00 mm            | 1.2/0.6  |                           |
-| Diff_90R_USB  | 0.154 / 0.203 mm   | 0.45/0.2 | USB 2.0 HS                |
-| Diff_100R     | 0.119 / 0.203 mm   | 0.45/0.2 | Ethernet, LVDS            |
-| RF_50R        | 0.151 mm           | 0.45/0.2 | microstrip over In1       |
+Harmonized classes (JLCPCB-referenced, clamped to this vendor's floor):
 
-Geometries verified with the JLCPCB impedance calculator (3313 outer prepreg,
-0.5 oz L2, tolerance +/-0.5%); valid for any stack with 3313 outer prepreg,
-including this 1.6 mm default. The 2116 middle prepreg gives In2 usable
-stripline references against In1/In3 (stripline widths differ).
+- Default 0.15/0.15 mm, via 0.6/0.3
+- Signal_Fine 0.09/0.09 mm (at the manufacturing floor)
+- Power 0.5/0.2 mm, via 0.8/0.4
+- HighCurrent 1.0/0.25 mm, via 1.2/0.6
+- Impedance (calculator-verified): Diff_90R_USB, Diff_100R, RF_50R
+
 
 ## Order defaults (quote page)
 

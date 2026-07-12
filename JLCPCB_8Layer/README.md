@@ -69,30 +69,16 @@ allowed; the .kicad_dru does not block vias in SMD pads. Select "Epoxy Filled
 Aspect ratio at 0.2 mm drill / 1.6 mm board = 8:1 — OK, but don't combine
 0.2 mm drills with 2.0 mm thickness.
 
-## Net classes / impedance
+## Net classes
 
-Same classes as the 6-layer template (outer prepreg identical 3313 0.0994 mm):
+Harmonized classes (JLCPCB-referenced, clamped to this vendor's floor):
 
-| Class         | Track / gap    | Via      | Notes                 |
-|---------------|----------------|----------|------------------------|
-| Default       | 0.15 mm        | 0.6/0.3  |                        |
-| Signal_Fine   | 0.10 mm        | 0.45/0.2 | BGA fanout             |
-| Power         | 0.50 mm        | 0.8/0.4  |                        |
-| HighCurrent   | 1.00 mm        | 1.2/0.6  |                        |
-| Diff_90R_USB  | 0.154 / 0.203 mm | 0.45/0.2 | outer layers, microstrip |
-| Diff_100R     | 0.119 / 0.203 mm | 0.45/0.2 | outer layers           |
-| RF_50R        | 0.151 mm       | 0.45/0.2 | outer layers           |
+- Default 0.15/0.15 mm, via 0.6/0.3
+- Signal_Fine 0.09/0.09 mm (at the manufacturing floor)
+- Power 0.5/0.2 mm, via 0.8/0.4
+- HighCurrent 1.0/0.25 mm, via 1.2/0.6
+- Impedance (calculator-verified): Diff_90R_USB, Diff_100R, RF_50R
 
-Calculator-verified for 3313 outer prepreg, outer layers only. Only valid if
-the stackup chosen in the order flow has a 3313 outer prepreg -- 1080-outer
-stacks are much narrower (calculator example JLC080811-1080: 50 R = 0.099 mm,
-100 R = 0.085 mm, below the 0.09 mm limit, BGA-fanout exception only).
-Inner stripline (In2/In5) needs separate calculation.
-
-
-NPTH pads with a copper ring: keep the annular ring >= 0.45 mm (JLCPCB removes
-a 0.2 mm copper ring around NPTH holes for the sealing film; smaller rings can
-end up thin or missing).
 
 ## Order defaults (quote page)
 

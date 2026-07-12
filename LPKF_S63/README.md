@@ -38,7 +38,13 @@ Micro cutter reaches 0.1-0.15 mm but needs per-job calibration; not used here.
 
 ## Net classes
 
-Default 0.4/0.4 - Power 0.8 - HighCurrent 1.5 mm.
+Harmonized classes (JLCPCB-referenced, clamped to this vendor's floor):
+
+- Default 0.4/0.4 mm, via 1.5/0.8
+- Signal_Fine 0.25/0.25 mm (at the manufacturing floor)
+- Power 0.8/0.5 mm, via 1.8/1.0
+- HighCurrent 1.5/0.6 mm, via 2.2/1.2
+
 
 ## Notes
 

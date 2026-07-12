@@ -36,7 +36,13 @@ a 0.5 mm hole wants a >=0.9 mm pad.
 
 ## Net classes
 
-Default 0.2/0.15 - Signal_Fine 0.1/0.1 - Power 0.5 - HighCurrent 1.0 mm
+Harmonized classes (JLCPCB-referenced, clamped to this vendor's floor):
+
+- Default 0.15/0.15 mm, via 0.6/0.3
+- Signal_Fine 0.1/0.1 mm (at the manufacturing floor)
+- Power 0.5/0.2 mm, via 0.8/0.4
+- HighCurrent 1.0/0.25 mm, via 1.2/0.6
+
 
 ## Track width presets
 

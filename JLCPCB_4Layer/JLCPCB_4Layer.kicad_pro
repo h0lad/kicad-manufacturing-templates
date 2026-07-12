@@ -182,7 +182,6 @@
         0.0,
         0.09,
         0.1,
-        0.127,
         0.15,
         0.2,
         0.226,
@@ -231,10 +230,6 @@
         {
           "diameter": 0.45,
           "drill": 0.2
-        },
-        {
-          "diameter": 0.5,
-          "drill": 0.25
         },
         {
           "diameter": 0.6,
@@ -488,8 +483,8 @@
     "classes": [
       {
         "bus_width": 12,
-        "clearance": 0.127,
-        "diff_pair_gap": 0.25,
+        "clearance": 0.15,
+        "diff_pair_gap": 0.2,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
         "line_style": 0,
@@ -505,8 +500,8 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.1,
-        "diff_pair_gap": 0.25,
+        "clearance": 0.09,
+        "diff_pair_gap": 0.2,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
         "line_style": 0,
@@ -515,15 +510,15 @@
         "name": "Signal_Fine",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
         "schematic_color": "rgba(0, 0, 0, 0.000)",
-        "track_width": 0.1,
+        "track_width": 0.09,
         "via_diameter": 0.45,
         "via_drill": 0.2,
         "wire_width": 6
       },
       {
         "bus_width": 12,
-        "clearance": 0.15,
-        "diff_pair_gap": 0.25,
+        "clearance": 0.2,
+        "diff_pair_gap": 0.2,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
         "line_style": 0,
@@ -539,8 +534,8 @@
       },
       {
         "bus_width": 12,
-        "clearance": 0.2,
-        "diff_pair_gap": 0.25,
+        "clearance": 0.25,
+        "diff_pair_gap": 0.2,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
         "line_style": 0,

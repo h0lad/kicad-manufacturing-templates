@@ -56,7 +56,13 @@ end up thin or missing).
 
 ## Net classes
 
-Default 0.2 mm · Signal_Fine 0.127 mm · Power 0.5 mm · HighCurrent 1.0 mm
+Harmonized classes (JLCPCB-referenced, clamped to this vendor's floor):
+
+- Default 0.15/0.15 mm, via 0.6/0.3
+- Signal_Fine 0.1/0.1 mm (at the manufacturing floor)
+- Power 0.5/0.2 mm, via 0.8/0.4
+- HighCurrent 1.0/0.25 mm, via 1.2/0.6
+
 
 ## No impedance classes
 

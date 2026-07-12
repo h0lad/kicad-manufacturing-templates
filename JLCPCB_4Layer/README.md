@@ -107,19 +107,14 @@ Inner layers (0.5 oz) carry roughly a third of that — route power on outer lay
 
 ## Net classes
 
-| Class         | Track     | Clearance | Via        | Notes                        |
-|---------------|-----------|-----------|------------|------------------------------|
-| Default       | 0.15 mm   | 0.127 mm  | 0.6/0.3    |                              |
-| Signal_Fine   | 0.10 mm   | 0.10 mm   | 0.45/0.2   | BGA/QFN fanout only          |
-| Power         | 0.50 mm   | 0.15 mm   | 0.8/0.4    |                              |
-| HighCurrent   | 1.00 mm   | 0.20 mm   | 1.2/0.6    |                              |
-| Diff_90R_USB  | 0.291 / 0.203 mm gap  | | 0.45/0.2   | USB 2.0 HS                   |
-| Diff_100R     | 0.226 / 0.203 mm gap  | | 0.45/0.2   | Ethernet, LVDS, RGMII pairs  |
-| RF_50R        | 0.359 mm  | 0.30 mm   | 0.45/0.2   | single-ended microstrip      |
+Harmonized classes (JLCPCB-referenced, clamped to this vendor's floor):
 
-Geometries verified with the JLCPCB impedance calculator (JLC04161H-7628,
-1.6 mm, 0.5 oz L2, tolerance +/-0.5%). Select JLC04161H-7628 impedance control
-when ordering so etch compensation matches.
+- Default 0.15/0.15 mm, via 0.6/0.3
+- Signal_Fine 0.09/0.09 mm (at the manufacturing floor)
+- Power 0.5/0.2 mm, via 0.8/0.4
+- HighCurrent 1.0/0.25 mm, via 1.2/0.6
+- Impedance (calculator-verified): Diff_90R_USB, Diff_100R, RF_50R
+
 
 ## Ordering notes
 
