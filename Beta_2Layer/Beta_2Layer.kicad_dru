@@ -1,0 +1,34 @@
+(version 1)
+# SPDX-License-Identifier: AGPL-3.0-or-later
+
+# Beta LAYOUT PCB-POOL 2-layer, ENIG surface
+# de.beta-layout.com/leiterplatten/infos/spezifikationen (ENIG column)
+
+# E-F: via annular ring 0.1 mm all-round (vias 0.2-0.49 mm) -- global handles vias.
+# G-H: component holes >0.49 mm need 0.2 mm all-round ring
+(rule "Component pad annular ring"
+	(condition "A.Pad_Type == 'Through-hole' && A.Hole_Size_X > 0.49mm")
+	(constraint annular_width (min 0.2mm)))
+
+# J: NDK (NPTH) hole to copper 0.3 mm
+(rule "NPTH to copper"
+	(condition "A.Pad_Type == 'NPTH, mechanical'")
+	(constraint hole_clearance (min 0.3mm)))
+
+# I: min distance hole to milled contour already global (edge_clearance 0.3);
+# enforce for drills too
+(rule "Hole to board edge"
+	(condition "A.Type == 'Via' || A.Pad_Type == 'Through-hole'")
+	(constraint edge_clearance (min 0.3mm)))
+
+# Silkscreen: line 0.1 mm, text height 1.0 mm; silk layers only
+(rule "Silkscreen minimums"
+	(layer outer)
+	(condition "A.Type == 'Text' && (A.Layer == 'F.Silkscreen' || A.Layer == 'B.Silkscreen')")
+	(constraint text_thickness (min 0.1mm))
+	(constraint text_height (min 1.0mm)))
+
+# Silk clipped 0.1 mm from mask pads (Beta clips automatically; keep as check)
+(rule "Silk to pad"
+	(condition "A.Type == 'Text' && B.Pad_Type == 'SMD'")
+	(constraint silk_clearance (min 0.1mm)))
