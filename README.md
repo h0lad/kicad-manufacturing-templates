@@ -1,8 +1,8 @@
 # KiCad PCB Manufacturer Templates
 
-Soullessly AI-slopped with Claude Fable 5. Mostly untested. 
+Soullessly AI-slopped with Claude Fable 5.
 
-A few random manufacturing parameters were cross-checked against the JLCPCB and Beta LAYOUT specification pages and looked correct.
+A few random manufacturing parameters were cross-checked against each vendor's specification pages and looked correct.
 
 **Use at your own risk.** 
 

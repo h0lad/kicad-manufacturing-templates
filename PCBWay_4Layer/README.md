@@ -120,9 +120,7 @@ Impedance classes (outer-layer microstrip over In1/GND, 0.1855 mm 7628, Dk 4.74)
 - Diff_100R 0.214/0.214 mm, gap 0.2
 - RF_50R (single-ended) 0.31 mm, clearance 0.3
 
-Widths are computed from **this** stackup (Hammerstad microstrip), not copied from
-JLCPCB. Impedance control is a **paid** PCBWay option -- verify widths against their
-impedance calculator with the stackup they assign.
+Widths are computed from **this** stackup (Hammerstad microstrip). Impedance control is a **paid** PCBWay option -- verify widths against their impedance calculator with the stackup they assign.
 
 ## Ordering notes
 

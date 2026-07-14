@@ -1,10 +1,20 @@
-# Eurocircuits STANDARD pool 2-Layer
+# Eurocircuits STANDARD Pool 2-Layer FR-4 KiCad Template
 
-Pattern class 6 / drill class C -- the pooled "PCB proto" / "STANDARD pool"
-envelope. FR4 1.55 mm, ENIG. EU manufacturing (HU/DE).
-Ref: <https://www.eurocircuits.com/de/technische-richtlinien/leitfaden-leiterplattendesign/klassifizierung/> (07/2025).
+KiCad project template targeting Eurocircuits **pattern class 6 / drill class C** -- the pooled **"PCB proto"** / **"STANDARD pool"** envelope. FR4 1.55 mm, ENIG, EU manufacturing (HU/DE). Constraints keep the design inside the cheapest pooled order. Ref: <https://www.eurocircuits.com/de/technische-richtlinien/leitfaden-leiterplattendesign/klassifizierung/> (July 2025).
 
-## Global DRC constraints
+Files are KiCad 8 format; KiCad 10 opens and migrates them on first save.
+
+## Installation
+
+Copy the `Eurocircuits_2Layer/` directory into your user template path, then
+File → New Project from Template → User Templates:
+
+```
+Linux:   ~/.local/share/kicad/10.0/template/
+Windows: %USERPROFILE%\Documents\KiCad\10.0\template\
+```
+
+## Global DRC constraints (Board Setup → Constraints)
 
 Value = template setting. Spec = Eurocircuits pattern/drill class 6 (STANDARD pool).
 `[dru]` = enforced in `.kicad_dru`. Annular rings are measured from TOOLSIZE
@@ -23,6 +33,37 @@ Value = template setting. Spec = Eurocircuits pattern/drill class 6 (STANDARD po
 | Copper to edge `[dru]`        | 0.25 mm  | copper to board edge             | 0.25 mm    |
 | Silk line / text `[dru]`      | 0.15 / 1.0 mm | silkscreen                  | 0.15 / 1.0 mm |
 
+## Custom rules (.kicad_dru)
+
+- Outer annular ring >= 0.125 mm (OAR, class-6 min)
+- IPI hole to copper >= 0.20 mm (IAR + 0.075 mm, floor 0.2 mm)
+- Drill spacing >= 0.25 mm (toolsize)
+- NPTH annular ring >= 0.30 mm
+- Copper to board edge >= 0.25 mm
+- Silk line width >= 0.15 mm, text height >= 1.0 mm
+
+## Track width presets
+
+0.15 (min) -- 0.2 (default) -- 0.25 -- 0.3 -- 0.4 -- 0.5 -- 0.8 -- 1.0 -- 1.5 -- 2.0 mm
+
+## Via presets
+
+| Preset      | Pad / Drill | Use                              |
+|-------------|-------------|----------------------------------|
+| 0.45 / 0.25 | **class-6 minimum** | minimum manufacturable via     |
+| 0.60 / 0.30 | **default** | general signal                  |
+| 0.90 / 0.50 | component / power  | larger pads, more current       |
+| 1.20 / 0.60 | high current  | thermal / power distribution    |
+
+Pad = final hole + 0.5 mm is the class-6 floor (hole + 0.1 mm tool + 2×0.2 mm OAR).
+
+## Net classes
+
+- Default 0.2/0.15 mm, via 0.6/0.3
+- Signal_Fine 0.15/0.15 mm, via 0.6/0.3 (at the class-6 manufacturing floor)
+- Power 0.5/0.2 mm, via 0.9/0.5
+- HighCurrent 1.0/0.25 mm, via 1.2/0.6
+
 ## Pattern / drill class
 
 STANDARD pool = pattern class 6, drill class C. Staying inside these keeps the
@@ -30,27 +71,16 @@ board poolable (cheapest). TECH pool (class 8, 0.10 mm track/space) and On deman
 (class 9, 0.09 mm) exist but cost more and leave the pool -- loosen the rules
 only if you order those services.
 
-## Via presets
+## Stackup
 
-0.45/0.25 (class-6 min) - 0.6/0.3 (default) - 0.9/0.5 (component/power) - 1.2/0.6
-
-Pad = final hole + 0.5 mm is the class-6 floor (hole + 0.1 tool + 2x0.2 OAR).
-
-## Net classes
-
-Harmonized classes (JLCPCB-referenced, clamped to this vendor's floor):
-
-- Default 0.2/0.15 mm, via 0.6/0.3
-- Signal_Fine 0.15/0.15 mm (at the manufacturing floor)
-- Power 0.5/0.2 mm, via 0.8/0.4
-- HighCurrent 1.0/0.25 mm, via 1.2/0.6
-
-
-## Track width presets
-
-0.15 (min) - 0.2 (default) - 0.25 - 0.3 - 0.4 - 0.5 - 0.8 - 1.0 - 1.5 - 2.0 mm
+Symmetric FR4 build to ~1.55 mm. Eurocircuits assigns the exact stackup per order
+(pooled panel); confirm in the configurator before an impedance-controlled run.
 
 ## Not supported (pooled)
 
 - Blind/buried vias not in the standard pool (available in On demand).
 - Copper to edge below 0.25 mm needs special handling.
+
+## Sources
+
+- [Eurocircuits Classification / Design Guide](https://www.eurocircuits.com/de/technische-richtlinien/leitfaden-leiterplattendesign/klassifizierung/)
