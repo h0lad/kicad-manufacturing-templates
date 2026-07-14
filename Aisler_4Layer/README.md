@@ -1,8 +1,28 @@
 # AISLER 4-Layer 35um ENIG
 
 Official AISLER KiCad template (from github.com/AislerHQ/aisler-support),
-35 um copper, ENIG. Panasonic laminate, Peters Elpemer soldermask.
+35 um copper, ENIG. FR4 (1080/2116 prepreg + FR4 core), Peters Elpemer soldermask.
 Ref: <https://community.aisler.net/c/knowledge-base/design-rules/41> (07/2025).
+
+## Stackup (1.6 mm, 35 um Cu, ENIG)
+
+From AISLER's published stackup
+([4-layer 1.6 mm](https://community.aisler.net/t/4-layers-1-6mm-35-m-stackup/5457)):
+
+| Ref  | Layer            | Thickness   | er        |
+|------|------------------|------------:|-----------|
+|      | Solder mask      | 25 um       |           |
+| TOP  | Copper           | 35 um       |           |
+|      | Prepreg 1080 x2  | 2 x 70 um   | 4.0-4.3   |
+| IN1  | Copper           | 35 um       |           |
+|      | Core FR4         | 1200 um     | 4.5-4.6   |
+| IN2  | Copper           | 35 um       |           |
+|      | Prepreg 1080 x2  | 2 x 70 um   | 4.0-4.3   |
+| BOT  | Copper           | 35 um       |           |
+|      | Solder mask      | 25 um       |           |
+
+KiCad models each 1080 prepreg pair as one 0.14 mm dielectric (er 4.0) and the core
+as 1.2 mm (er 4.55). Nominal (pre-press) sum ~ 1.67 mm; AISLER presses to 1.6 mm +-10 %.
 
 ## Global DRC constraints
 
