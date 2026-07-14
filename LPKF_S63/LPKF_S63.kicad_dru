@@ -2,8 +2,25 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 
 # LPKF ProtoMat S63 -- 2-sided isolation milling, bare copper, no plating.
-# Conservative: rules chosen so a slightly worn 0.2 mm universal cutter still
-# clears every channel in one pass. Robustness over density.
+#
+# Tool-tiered rules. LPKF's universal cutter removes a 0.2 mm channel in one pass
+# (LPKF DQ TechGuide; confirmed by the USC/FabAcademy S104 test, which milled every
+# structure EXCEPT the very smallest clearance). The micro cutter reaches the
+# machine's 0.1 mm floor (ProtoMat S62/S63 = 4 mil) but that limit is where
+# isolation gets flaky, so the DRC floor is held at 0.15 mm -- deliberately clear
+# of the cliff. Registration is +-0.02 mm front-to-back, repeatability +-5 um.
+#
+# Netclasses map to tools: Default 0.4 mm (generous, single-pass safe) for
+# everything; Signal_Fine 0.2 mm = one universal-cutter pass, used only where a
+# 0.5 mm-pitch QFN forces it; Signal_Micro 0.15 mm needs the micro cutter with
+# per-job depth calibration and may take multiple passes. Keep general routing off
+# the fine tiers -- 0.2 mm is a working limit for the universal cutter, not a target.
+#
+# Sources: LPKF DQ TechGuide (universal cutter 0.2 mm, drills 0.2-3 mm, rivet hole
+# >=0.4 mm, rivet OD 0.6-1.2 mm, 35 um Cu); ProtoMat S brochure (S63: 0.5 um mech.
+# resolution, +-0.02 mm registration, 60 000 rpm, structures to 100 um); eLab Siegen
+# production rules (elab-siegen.de, ~0.21-0.23 mm wire-to-wire, 0.4 mm min drill);
+# Fablab Enschede wiki (advises >=0.25 mm track, via drill >=0.7 mm, pad >=1.2 mm).
 
 # THT pads soldered both sides; keep drills apart
 (rule "Hole-to-hole"
